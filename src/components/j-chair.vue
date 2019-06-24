@@ -17,7 +17,7 @@
                     </div>
                     <div class="j-bottom">
                         <div class="j-price j-price-left">{{i.price}}<span>RMB</span></div>
-                        <span class="j-buy">Buy</span>
+                        <span class="j-buy" @click="godetail">Buy</span>
                     </div>
                 </div>
             </div>
@@ -130,7 +130,13 @@ export default {
                 },
             ]  
         }
+    },
+    methods: {
+    godetail(){
+        this.$router.push('detail'),
+        window.scroll(0, 0);
     }
+  }
 }
 </script>
 
@@ -159,11 +165,11 @@ export default {
     box-sizing: border-box;
 }
 .J-chair .j-chairbox:hover .j-back{
-    transform: translate(0,-102px);
+    transform: translate(0,-110px);
     /* box-shadow: 0.5px 0.5px 20px 5px rgba(0,0,0,0.1); */
 }
 .J-chair .j-chairbox:hover .j-img1{
-    transform: scale(1.2);
+    transform: scale(1.4);
     background: #F3F3F3;
     border-radius: 25px;
 }
@@ -173,7 +179,7 @@ export default {
 }
 .J-chair .j-img1{
     width: 120px;
-    height: 160px;
+    height: 155px;
     margin: 20px auto;
     transition: all 0.6s;
 }
@@ -205,7 +211,7 @@ export default {
     right: 5px;
     bottom: 0;
     border: 1px solid #999;
-    padding: 2px 6px;
+    padding: 4px 8px;
 }
 .J-chair .j-buy:hover{
     background:pink;

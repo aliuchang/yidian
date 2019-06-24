@@ -75,7 +75,7 @@
             <div class="j-body1">
                 <img src="@/assets/j-img/j-a1.png" alt="">
                 <p class="j-body-price">{{jval1}}<span>RMB</span></p>
-                <p class="j-body-go">GO</p>
+                <p class="j-body-go" @click="godetail">GO</p>
             </div>
             <Jchair></Jchair>
         </div>
@@ -107,7 +107,13 @@ export default {
     components: {
         Jchair,
         Crumbs
+    },
+    methods: {
+    godetail(){
+        this.$router.push('detail'),
+        window.scroll(0, 0);``
     }
+  }
 }
 </script>
 <style >
@@ -197,7 +203,7 @@ export default {
 .j-box .j-body-price{
     font-size: 24px;
     position: absolute;
-    top: 160px;
+    top: 190px;
     right: 48px;
 }
 .j-box .j-body-price span{
@@ -211,7 +217,7 @@ export default {
     background-color: #5ED5E0;
     position: absolute;
     right: 100px;
-    top: 220px;
+    top: 240px;
     text-align: center;
     line-height: 30px;
     color: #fff;
