@@ -116,7 +116,7 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
-          this.$router.push({ name: "index" });
+          this.$router.push({ name: "login" });
         } else {
           console.log("error submit!!");
           return false;
@@ -145,6 +145,8 @@ export default {
   margin: 0;
   padding: 0;
 }
+
+/* .el-input__inner:focus{outline:medium;} */
 .el-header,
 .el-footer {
   background-color: #b3c0d1;
@@ -230,5 +232,9 @@ export default {
   color: #ffffff;
   opacity: 0.8;
   letter-spacing: 2px;
+  border: none;
+}
+.form-box .loginn:hover{
+  background: #53b0be;
 }
 </style>

@@ -60,7 +60,6 @@
                 <div class="qq-box"><img src="../assets/index/weixin.png" alt=""></div>
                 <div class="qq-box"><img src="../assets/index/weibo.png" alt=""></div>
               </el-form-item>
-
             </el-form>
           </div>
         </div>
@@ -82,7 +81,7 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
-          this.$router.push({ name: "index" });
+          this.$router.push({ name: "firstpage" });
         } else {
           console.log("error submit!!");
           return false;
@@ -188,10 +187,14 @@ export default {
   width: 100%;
   background-color: #7d7d7d;
 	box-shadow: 0px 3px 5px 0px 
-		rgba(195, 195, 195, 0.74);
-    color: #ffffff;
+	rgba(195, 195, 195, 0.74);
+  color: #ffffff;
 	opacity: 0.8;
   letter-spacing: 2px;
+  border: none;
+}
+.form-box .loginn:hover{
+  background: #53b0be;
 }
 .form-box .BAT-box{
 
@@ -203,6 +206,10 @@ export default {
 .form-box .BAT-box .qq-box{
   width: 24px;
   height: 100%;
+  cursor: pointer;
+}
+.form-box .BAT-box .qq-box img{
+  width: 100%;
 }
 .form-box .BAT-box .qq-box:nth-child(1){
   float: left;
