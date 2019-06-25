@@ -42,6 +42,7 @@ export default {
     height: 50px;
     line-height: 50px;
     float: left;
+    font-size: 20px;
 }
 
 </style>

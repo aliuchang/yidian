@@ -128,6 +128,7 @@ export default {
 
 <style>
 .z-status {
+  margin: 0 auto;
   width: 1200px;
   height: 83px;
   background: #f3f3f3;

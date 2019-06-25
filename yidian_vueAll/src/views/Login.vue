@@ -74,7 +74,7 @@ export default {
     return {
       numberValidateForm: {
         name: "",
-        Pass: ""
+        pass: ""
       }
     };
   },
@@ -82,7 +82,20 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
-          this.$router.push({ name: "index" });
+          let data = new FormData()
+          data.append('username',this.numberValidateForm.name)
+          data.append('password',this.numberValidateForm.pass)
+          this.$axios.post('api/login/',data).then((res)=>{
+            console.log(res)
+            if(res.data.code == "ok"){
+              this.$router.push({ name: "firstpage" });
+            }
+            else{
+              console.log("error！")
+            }
+
+          })
+
         } else {
           console.log("error submit!!");
           return false;

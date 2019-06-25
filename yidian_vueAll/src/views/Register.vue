@@ -72,7 +72,7 @@ export default {
     return {
       numberValidateForm: {
         name: "",
-        Pass: "",
+        pass: "",
         sendcode: "",
       },
     disabled: false,
@@ -115,8 +115,29 @@ export default {
 
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
-        if (valid) {
-          this.$router.push({ name: "index" });
+        if (valid) {                                                                                                                                         //  this.$axios.get('api/login/')
+          // web后台接收formData，这里是json,后来不用json了，直接就是data
+          let data = new FormData();
+
+          // console.log(document.cookie)  // 用正则切出来
+          // let reg = /csrftoken=([\w]+[;]?)/g;
+          // 直接匹配字符串
+          // console.log(reg.exec(document.cookie))
+          // 在http里加一个内容让后台可以接收到，cookie，这样才能做到跨域的验证 用做好的在博客上。
+
+          //data添加一些数据,username从当前的numberValidateForm中来
+          data.append('username',this.numberValidateForm.name);
+          data.append('password',this.numberValidateForm.pass);
+
+          this.$axios.post('api/register/',data).then((res)=>{
+            // console.log(res)
+            // console.log(typeof res)
+            if(res.data.code == "ok"){
+              this.$router.push({ name: "login" });
+            }else {
+              console.log("error")
+            }
+          });
         } else {
           console.log("error submit!!");
           return false;

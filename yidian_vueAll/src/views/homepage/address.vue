@@ -1,7 +1,11 @@
 <template>
   <div class="w-add">
+    <!-- 面包屑 -->
+    <percrumbs/>
+
     <!-- 步骤条 -->
-    <status statuss='2'></status>
+    <status statuss="2"></status>
+
     <!-- 配送地址 -->
     <div class="w-pei">
       <div class="w-head">
@@ -15,7 +19,7 @@
             <p class="lp">Shipping Address</p>
           </div>
           <div class="w-photo">
-            <img src="@/assets/w-img/01.png" alt>
+            <img src="@/assets/w-img/01.png">
           </div>
         </div>
       </div>
@@ -24,12 +28,12 @@
       <div class="w-left">
         <div class="w-left-box">
           <div class="w-floor1">
-            <div class="w-image1">
-              <img src="@/assets/w-img/bian.jpg" alt>
-            </div>
-            <div class="w-image2">
-              <img src="@/assets/w-img/shan.jpg" alt>
-            </div>
+            <el-button class="w-image1" type="text" @click="edit_address">
+              <img src="@/assets/w-img/bian.jpg">
+            </el-button>
+            <el-button class="w-image2" type="text" @click="del_address">
+              <img src="@/assets/w-img/shan.jpg">
+            </el-button>
           </div>
           <div class="w-floor2">
             <p>李思思</p>
@@ -81,7 +85,7 @@
       </div>
       <div class="bigbox">
         <div class="bigbox-1">
-          <p>返回购物车修改 ></p>
+          <p @click="goback_shop">返回购物车修改 ></p>
         </div>
         <ul class="bigbox-2">
           <li class="bigbox-item">商品描述</li>
@@ -92,26 +96,28 @@
           <li class="bigbox-item">总价</li>
         </ul>
         <goods></goods>
+
+        <!-- 结算 -->
         <div class="bott-1">
           <div class="bott-1-1">
-            <span>3</span>个结果
+            <span>{{num}}</span>个结果
           </div>
           <div class="bott-1-2">
             运费：
-            <span>300.00</span> RMB
+            <span>{{yunfei}}</span> RMB
           </div>
           <div class="bott-1-3">
             应付总额：
             Total payable:
           </div>
           <div class="bott-1-4">
-            <span>3146.00</span>RMB
+            <span>{{total}}</span>RMB
           </div>
-          <div class="jie">结 算</div>
+          <div class="settlement" @click="settlement">结 算</div>
         </div>
       </div>
     </div>
-    <!-- 弹出的对话框 -->
+    <!-- 弹出的对话框：新增地址 -->
     <el-dialog :visible.sync="dialogFormVisible">
       <el-form :model="form">
         <el-input type="text" class="w-name" v-model="form.name"></el-input>
@@ -139,8 +145,9 @@
 </template>
 
 <script>
-import goods from "@/components/address/goods.vue"
-import status from "@/components/address/z-status.vue"
+import goods from "@/components/address/goods.vue";
+import status from "@/components/z-status.vue";
+import percrumbs from "@/components/crumbs.vue";
 
 export default {
   data() {
@@ -155,15 +162,66 @@ export default {
         city: "",
         area: "",
         street: ""
-      }
+      },
+      num: 3,
+      yunfei: 10,
+      total: 0
+    };
+  },
+  methods: {
+    goback_shop() {
+      this.$router.push({ name: "shop" });
+      window.scroll(0, 0);
+    },
+    del_address() {
+      this.$confirm("删除该地址?", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning"
+      })
+        .then(() => {
+          this.$message({
+            type: "success",
+            message: "删除成功!"
+          });
+        })
+        .catch(() => {
+          this.$message({
+            type: "info",
+            message: "已取消删除"
+          });
+        });
+    },
+    edit_address() {
+      this.$confirm("编辑该地址?", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning"
+      })
+        .then(() => {
+          this.$message({
+            type: "success",
+            message: "编辑成功!"
+          });
+        })
+        .catch(() => {
+          this.$message({
+            type: "info",
+            message: "已取消编辑"
+          });
+        });
+    },
+    settlement(){
+      this.$router.push({name:'pay'})
+      window.scroll(0,0)
     }
   },
-  methods: {},
   components: {
     goods,
-    status
+    status,
+    percrumbs
   }
-}
+};
 </script>
 
 <style>
@@ -225,7 +283,7 @@ export default {
 .w-add .w-info {
   float: left;
   position: absolute;
-  top: 17px;
+  top: 38px;
   left: 53px;
   z-index: 2;
 }
@@ -245,7 +303,7 @@ export default {
 }
 .w-add .w-photo img {
   position: absolute;
-  left: 80px;
+  left: 70px;
 }
 .w-add .w-address {
   width: 1200px;
@@ -272,11 +330,17 @@ export default {
   position: absolute;
   top: 5px;
   right: 76px;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
 }
 .w-add .w-floor1 .w-image2 {
   position: absolute;
   top: 5px;
   right: 14px;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
 }
 .w-add .w-floor2 {
   height: 20px;
@@ -364,6 +428,7 @@ export default {
 .w-add .bigbox-1 p {
   width: 162px;
   float: right;
+  cursor: pointer;
 }
 .w-add .bigbox-2 {
   padding-left: 158px;
@@ -408,7 +473,7 @@ export default {
   color: #e72727;
   font-weight: 700;
 }
-.w-add .jie {
+.w-add .settlement {
   width: 250px;
   height: 80px;
   background-color: #7d7d7d;
@@ -420,6 +485,7 @@ export default {
   margin-top: 30px;
   font-weight: 600;
   box-shadow: 0 0 10px 1px #d0d0d0;
+  cursor: pointer;
 }
 /* 增加地址弹框 */
 .w-add .el-dialog {
