@@ -7,9 +7,14 @@ module.exports = {
       open: true,   // 启动项目后自动开启浏览器
       host: '127.0.0.1',
       port: 5000,
-      proxy: null,   // 设置代理
+      proxy: {
+          "/api":{
+              target:"http://127.0.0.1:8000/",
+              changeOrigin:true,
+          }
+      },   // 设置代理
     }
   }
-  
+
   // 可以百度vue.config查看配置
   // npm run dist
