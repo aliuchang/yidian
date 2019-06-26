@@ -15,6 +15,7 @@ class Index(View):
         return HttpResponse(res2)
 
 class Attr(View):
+
     def getJson(self,model,serializer):
         data = model.objects.all()
         ser = serializer(data,many=True)

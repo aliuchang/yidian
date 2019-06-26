@@ -122,14 +122,17 @@ export default {
         this.ImgUrl = imgUrl;
     },
     setChecked(e, num) {
+        console.log(e,num)
         let arr= this.span_object[num]['ls'].split(" ");
         if (arr[1] == "unshow") {
+
           arr[1] = "show";
         } else if(arr[1] == "show") {
           arr[1] = "unshow";
         }
       this.span_object[num]['ls'] = arr[0] + " " + arr[1];
     },
+
     buy_btn() {
       this.$router.push({name:'shop'})
     },

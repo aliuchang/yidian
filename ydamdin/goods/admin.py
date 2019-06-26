@@ -32,7 +32,8 @@ class GoodsAdmin(admin.ModelAdmin):
     def getImg(self,obj):
         img = str(obj.img.all()[0].img)
         img = img.split("/")[-1]
-        return format_html("<img src='/media/%s' width='100'>"%img)
+        print(img)
+        return format_html("<img src='/media/upload_img/%s' width='100'>"%img)
     getImg.short_description = "getImg"
 
     fieldsets = (

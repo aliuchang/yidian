@@ -80,9 +80,9 @@ WSGI_APPLICATION = 'ydamdin.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'yidian',
+        'NAME': 'yidian01',
         'USER':'root',
-        'PASSWORD':'123456',
+        'PASSWORD':'15835007400',
         'PORT':3306
     }
 }
