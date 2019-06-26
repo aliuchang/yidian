@@ -65,9 +65,13 @@ export default {
 </script>
 
 <style>
-* {
+*{
   margin: 0;
   padding: 0;
+}
+a{
+  text-decoration:none; 
+  outline: none;
 }
 #app {
   font-family: "站酷文艺体", "Avenir", Helvetica, Arial, sans-serif;

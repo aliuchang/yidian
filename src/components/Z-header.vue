@@ -2,52 +2,85 @@
   <div class="zheader">
     <div class="header_body">
       <div class="body_right">
-          <el-row>
-            <el-col :span="8" >
-              <img src="@/assets/z-img/z-find.png" @click="list">
-            </el-col>
-            <el-col :span="8">
-              <img src="@/assets/z-img/z-shop.png" @click="goshop">
-            </el-col>
-            <el-col :span="8">
-              <img src="@/assets/z-img/z-my.png" @click="my">
-            </el-col>
-            <el-col :span="8">
-              <img src="@/assets/z-img/z-shouchang.png" @click="shoucang">
-            </el-col>
-          </el-row>
+        <el-row>
+          <!-- -->
+          <el-col :span="8">
+            <router-link to="/list"  class="header-a">
+              <!-- <img src="@/assets/z-img/z-find.png" @click="list"> -->
+              <i class="iconfont icon-sousuo"></i>
+            </router-link>
+          </el-col>
+
+          <el-col :span="8">
+            <router-link to="/shop" class="header-a">
+              <!-- <img src="@/assets/z-img/z-shop.png" @click="goshop"> -->
+              <i class="iconfont icon-gouwudai"></i>
+            </router-link>
+          </el-col>
+          <el-col :span="8">
+            <!-- <img src="@/assets/z-img/z-my.png" @click="my"> -->
+            <router-link to="/personal"  class="header-a">
+              <i class="iconfont icon-gerenzhongxin"></i>
+            </router-link>
+          </el-col>
+          <el-col :span="8">
+            <router-link to="/login"  class="header-a">
+              <!-- <img src="@/assets/z-img/z-shouchang.png" @click="shoucang"> -->
+              <i class="iconfont icon-wujiaoxing"></i>
+            </router-link>
+          </el-col>
+        </el-row>
+      </div>
+      <div class="button_body">
+        <div class="body_world">
+          <span  v-show="shows">请您</span>
+          <span v-show="!shows">欢迎</span>
         </div>
-        <div class="button_body">
-          <div class="body_world">
-            <span>请您</span>
-          </div>
-          <div class="body_si">
-            <router-link to="/login" class="left">登录</router-link>
-            <router-link to="/register" class="right">注册</router-link>
-          </div>
+        <div class="body_si" v-show="shows">
+          <router-link to="/login" class="left">登录</router-link>
+          <router-link to="/register" class="right">注册</router-link>
+        </div>
+        <div v-show="!shows">
+          幻雨星空
         </div>
       </div>
     </div>
+  </div>
 </template>
 <script>
 export default {
-  methods:{
-    list(){
-      this.$router.push({name:'list'})
+  data(){
+    return{
+      shows:true,
+    }
+  },
+  methods: {
+    list() {
+      this.$router.push({ name: "list" });
     },
-    goshop(){
-      this.$router.push('shop')
+    goshop() {
+      this.$router.push("shop");
     },
-    my(){
-      this.$router.push({name:'personal'})
+    my() {
+      this.$router.push({ name: "personal" });
     },
-    shoucang(){
-      console.log(this.$route)
+    shoucang() {
+      console.log(this.$route);
+    }
+  },
+  mounted() {
+    let item = sessionStorage.getItem('name')
+    console.log(item)
+    if(item){
+        this.shows=false
+    }else {
+      this.shows=true
     }
   }
-}
+};
 </script>
 <style>
+
 .zheader {
   width: 100%;
   height: 62px;
@@ -70,9 +103,15 @@ export default {
   float: right;
   align-items: center;
 }
-.zheader .el-row .el-col-8 img{
+.zheader .el-row .el-col-8 img {
   width: 24px;
   height: 24px;
+}
+.zheader .header-a i{
+ text-decoration:none; 
+  outline: none;
+  font-size: 24px;
+  color: #000;
 }
 .zheader .body_si {
   width: 124px;
