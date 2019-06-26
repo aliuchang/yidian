@@ -36,16 +36,16 @@
                 <span class="y_color_item1"
                       :key="value.color"
                       :style="{'background':value.color}" 
-                      @click="setChecked($event,index)"
+                      @click="setChecked(index)"
                       >
-                    <i :class="value.ls"></i>                  
+                    <i :class="[ aa == index ? 'el-icon-check' : '']"></i>
                 </span>
             </template>
           </div>
           <div class="y_info_num">
             <span class="y_num_span_01">数量</span>
-            <el-input-number v-model="num" @change="handleChange" :min="1" :max="10" size="mini"></el-input-number>
-            <span class="y_num_span_02">库存31件</span>
+            <el-input-number v-model="num" @change="handleChange" :min="1" :max="this.stock" size="mini"></el-input-number>
+            <span class="y_num_span_02">库存{{ this.stock }}件</span>
           </div>
           <el-form-item>
             <el-button class="y_info_button" @click="buy_btn">立即购买</el-button>
@@ -95,10 +95,10 @@ export default {
       ImgUrl:require('@/assets/y_detail_img/y_detail_01.jpg'),
       // 颜色
       span_object:[
-        {color:'#ffca57','ls': 'el-icon-check unshow'},
-        {color:'#e9c7ab','ls': 'el-icon-check unshow'},
-        {color:'#caca74','ls': 'el-icon-check unshow'},
-        {color:'#cacf94','ls': 'el-icon-check unshow'}
+        {color:'#ffca57'},
+        {color:'#e9c7ab'},
+        {color:'#caca74'},
+        {color:'#cacf94'}
       ],
       detailForm: {
         title: "·北欧旅程·现代简约椅",
@@ -110,6 +110,8 @@ export default {
       isChoose: false,
       num: 1,
       isshow: true,
+      aa : 0,
+      stock:32,  // 库存数量
     };
   },
   components:{
@@ -121,18 +123,22 @@ export default {
     getIndex(imgUrl){
         this.ImgUrl = imgUrl;
     },
-    setChecked(e, num) {
-        console.log(e,num)
-        let arr= this.span_object[num]['ls'].split(" ");
-        if (arr[1] == "unshow") {
-
-          arr[1] = "show";
-        } else if(arr[1] == "show") {
-          arr[1] = "unshow";
-        }
-      this.span_object[num]['ls'] = arr[0] + " " + arr[1];
+    // 笨办法
+    // setChecked(e, num) {
+    //     // console.log(e.currentTarget)
+    //     this.$refs.style.color = '#000'
+    //     let arr= this.span_object[num]['ls'].split(" ");
+    //
+    //     if (arr[1] == "unshow") {
+    //       arr[1] = "show";
+    //     } else if(arr[1] == "show") {
+    //       arr[1] = "unshow";
+    //     }
+    //   this.span_object[num]['ls'] = arr[0] + " " + arr[1];
+    // },
+    setChecked(e){
+        this.aa = e
     },
-
     buy_btn() {
       this.$router.push({name:'shop'})
     },
@@ -142,6 +148,7 @@ export default {
     imgScc: function() {
       this.isChoose = !this.isChoose;
     },
+    // 获取到购买数量
     handleChange(value) {
       console.log(value);
     }
