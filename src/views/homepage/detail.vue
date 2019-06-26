@@ -1,48 +1,21 @@
 <template>
-  <div class="y_detail">
+  <div class="y_detail" id="y_detail">
     <!--面包屑-->
     <crumbs></crumbs>
     <!-- 商品购买信息 -->
     <div class="y_info">
       <div class="y_info_img">
         <img
-          src="@/assets/y_detail_img/y_detail_01.png"
+          :src="ImgUrl"
           alt
           :class="{'active':isChoose}"
-          @click="imgScc"
         >
-        <div class="y_info_small_img">
-          <div class="y_info_small_img_item">
-            <img
-              src="@/assets/y_detail_img/y_detail_02.png"
-              alt
-              :class="{'active':isChoose2}"
-              @click="imgScc2($event)"
-            >
-          </div>
-          <div class="y_info_small_img_item">
-            <img
-              src="@/assets/y_detail_img/y_detail_03.png"
-              alt
-              :class="{'active':isChoose2}"
-              @mouseover="imgScc2"
-            >
-          </div>
-          <div class="y_info_small_img_item">
-            <img
-              src="@/assets/y_detail_img/y_detail_04.png"
-              alt
-              :class="{'active':isChoose2}"
-              @mouseover="imgScc2"
-            >
-          </div>
-          <div class="y_info_small_img_item">
-            <img
-              src="@/assets/y_detail_img/y_detail_05.png"
-              alt
-              :class="{'active':isChoose2}"
-              @mouseover="imgScc2"
-            >
+        <!-- <pic-zoom :previewImg="ImgUrl" :zoomImg="bigImg" :src="ImgUrl"></pic-zoom> -->
+        <div class="y_info_small_img" >
+          <div class="y_info_small_img_item" v-for="img in imgUrl">
+            <div @click="getIndex(img.url)">
+                <img :src="img.url">
+            </div>
           </div>
         </div>
       </div>
@@ -85,21 +58,9 @@
     <div class="y_desc">
       <div class="y_desc_img_title">
         <img src="@/assets/y_detail_img/y_detail_06.png" alt>
-      </div>
-      <div class="y_desc_img">
-        <img src="@/assets/y_detail_img/y_detail_content_01.png" alt>
-      </div>
-      <div class="y_desc_img">
-        <img src="@/assets/y_detail_img/y_detail_content_02.png" alt>
-      </div>
-      <div class="y_desc_img">
-        <img src="@/assets/y_detail_img/y_detail_content_03.png" alt>
-      </div>
-      <div class="y_desc_img">
-        <img src="@/assets/y_detail_img/y_detail_content_04.png" alt>
-      </div>
-      <div class="y_desc_img">
-        <img src="@/assets/y_detail_img/y_detail_content_05.png" alt>
+      </div>      
+      <div class="y_desc_img" v-for="img in y_detail_content_img">
+            <img :src="img.url">
       </div>
       <div class="y_desc_img_title" style="margin-bottom: 0;">
         <img src="@/assets/y_detail_img/y_detail_07.png" alt>
@@ -112,10 +73,27 @@
 <script>
 import commond from '@/components/z-chair.vue'
 import crumbs from '@/components/crumbs.vue'
-
+// import picZoom from '../../components/y-pic-zoom'
 export default {
   data() {
     return {
+      // 商品详情图片
+      y_detail_content_img:[
+        {index:1,url:require('@/assets/y_detail_img/y_detail_content_01.png')},
+        {index:1,url:require('@/assets/y_detail_img/y_detail_content_02.png')},
+        {index:1,url:require('@/assets/y_detail_img/y_detail_content_03.png')},
+        {index:1,url:require('@/assets/y_detail_img/y_detail_content_04.png')},
+        {index:1,url:require('@/assets/y_detail_img/y_detail_content_05.png')},
+      ],
+      // 缩略图
+      imgUrl:[
+        {index:1,url:require('@/assets/y_detail_img/y_detail_01.jpg')},
+        {index:1,url:require('@/assets/y_detail_img/y_detail_02.jpg')},
+        {index:1,url:require('@/assets/y_detail_img/y_detail_03.jpg')},
+        {index:1,url:require('@/assets/y_detail_img/y_detail_04.jpg')},
+        ],
+      ImgUrl:require('@/assets/y_detail_img/y_detail_01.jpg'),
+      // 颜色
       span_object:[
         {color:'#ffca57','ls': 'el-icon-check unshow'},
         {color:'#e9c7ab','ls': 'el-icon-check unshow'},
@@ -130,17 +108,19 @@ export default {
         price: "999.00"
       },
       isChoose: false,
-      isChoose2: false,
       num: 1,
       isshow: true,
-
     };
   },
   components:{
     commond,
-    crumbs
+    crumbs,
+    // picZoom
   },
   methods: {
+    getIndex(imgUrl){
+        this.ImgUrl = imgUrl;
+    },
     setChecked(e, num) {
         let arr= this.span_object[num]['ls'].split(" ");
         if (arr[1] == "unshow") {
@@ -151,16 +131,13 @@ export default {
       this.span_object[num]['ls'] = arr[0] + " " + arr[1];
     },
     buy_btn() {
-      this.$router.push({name:'index'})
+      this.$router.push({name:'shop'})
     },
     addCar_btn() {
-      return '1'
+      this.$router.push({name:'shop'})
     },
     imgScc: function() {
       this.isChoose = !this.isChoose;
-    },
-    imgScc2: function(e) {
-      return "ok";
     },
     handleChange(value) {
       console.log(value);
@@ -173,50 +150,55 @@ export default {
 body {
   overflow-x: hidden;
 }
-.y_detail .unshow {
+#y_detail{
+  text-align: left;
+}
+#y_detail .unshow {
   display: none;
 }
-.y_detail .show {
+#y_detail .show {
   display: inline-block;
 }
-.y_detail {
+#y_detail {
   width: 1200px;
   margin: 0 auto;
 }
-.y_detail .y_info {
+#y_detail .y_info {
   width: 100%;
   height: 600px;
   position: relative;
 }
-.y_detail .y_info_img {
+#y_detail .y_info_img {
   width: 500px;
   height: 460px;
   position: absolute;
   left: 0;
   top: 0;
 }
-.y_detail .y_info_img img {
-  width: 70%;
+#y_detail .y_info_img img {
+  display: block;
+  width: 80%;
   height: auto;
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 50px;
+  left: 0;
+  right: 0;
   margin: auto;
   transform: scale(1); /*图片原始大小1倍*/
   transition: all ease 0.5s; /*图片放大所用时间*/
 }
-.y_detail img.active {
+#y_detail img.active {
   transform: scale(1.3); /*图片需要放大3倍*/
   position: absolute; /*是相对于前面的容器定位的，此处要放大的图片，不能使用position：relative；以及float，否则会导致z-index无效*/
   z-index: 100;
 }
-.y_detail img.active2 {
+#y_detail img.active2 {
   transform: scale(1.3);
   position: absolute;
   z-index: 100;
 }
-.y_detail .y_info_desc {
+#y_detail .y_info_desc {
   width: 600px;
   height: 100%;
   position: absolute;
@@ -225,46 +207,48 @@ body {
   padding-top: 50px;
   box-sizing: border-box;
 }
-.y_detail .y_info_desc .el-form-item {
+#y_detail .y_info_desc .el-form-item {
   margin: 0;
   padding: 0;
 }
-.y_detail .y_info_desc h3 {
+#y_detail .y_info_desc h3 {
   font-size: 24px;
   margin-bottom: 10px;
 }
-.y_detail .y_info_desc_p1 {
+#y_detail .y_info_desc_p1 {
   margin-bottom: 10px;
 }
-.y_detail .y_info_border {
+#y_detail .y_info_border {
   width: 40px;
   height: 8px;
   margin: 20px 0;
   border-radius: 10px;
   background: #ffca57;
 }
-.y_detail .y_info_desc_p2 {
+#y_detail .y_info_desc_p2 {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   width: 80%;
   font-weight: 300;
   font-size: 14px;
   margin: 20px 0;
 }
-.y_detail .y_info_desc_p3 {
+#y_detail .y_info_desc_p3 {
   font-size: 24px;
   font-weight: 600;
   margin: 20px 0;
 }
-.y_detail .y_info_desc_p3 span:nth-child(2) {
+#y_detail .y_info_desc_p3 span:nth-child(2) {
   margin-left: 10px;
   font-size: 12px;
   font-weight: 400;
 }
-.y_detail .y_info_color_select {
+#y_detail .y_info_color_select {
   height: 50px;
   line-height: 50px;
   margin: 10px 0;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-.y_detail .y_color_item1 {
+#y_detail .y_color_item1 {
   display: inline-block;
   width: 40px;
   height: 40px;
@@ -276,18 +260,21 @@ body {
   text-align: center;
   color: #fff;
 }
-.y_detail .y_info_num {
+/*增加按钮*/
+#y_detail .y_info_num {
   width: 100%;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-.y_detail .y_info_num .y_num_span_01 {
+#y_detail .y_info_num .y_num_span_01 {
   font-size: 16px;
   letter-spacing: 30px;
 }
-.y_detail .y_info_num .y_num_span_02 {
+#y_detail .y_info_num .y_num_span_02 {
   font-size: 14px;
   color: #727272;
 }
-.y_detail .y_info_desc .el-button {
+
+#y_detail .y_info_desc .el-button {
   color: black;
   font-size: 18px;
   letter-spacing: 3px;
@@ -296,41 +283,46 @@ body {
   margin: 20px 10px 20px 0;
   border: 1px solid #b2b2b2;
 }
-.y_detail .y_info_small_img {
-  width: 500px;
+
+/**/
+#y_detail .y_info_small_img {
+  width: 400px;
   height: 100px;
   position: absolute;
   bottom: -100px;
-  left: 50px;
+  left: 0;right:0;
+  margin: auto;
+
 }
-.y_detail .y_info_small_img_item {
+#y_detail .y_info_small_img_item {
   display: inline-block;
-  width: 100px;
-  height: 100px;
-  margin-right: 20px;
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
   position: relative;
 }
-.y_detail .y_info_small_img_item img {
-  width: 100px;
+#y_detail .y_info_small_img_item img {
+  width: 100%;
   left: 0;
 }
-.y_detail .y_desc_img {
+#y_detail .y_desc_img {
   width: 94%;
   margin: 0 auto;
 }
-.y_detail .y_desc_img_title {
+#y_detail .y_desc_img_title {
   width: 50%;
   margin: 50px auto;
 }
-.y_detail .y_desc_img img,.y_desc_img_title img {
+#y_detail .y_desc_img img,.y_desc_img_title img {
   width: 100%;
   margin-bottom: 50px;
 }
-.y_detail .el-input-number--mini {
+
+#y_detail .el-input-number--mini {
   margin-right: 20px;
   position: relative;
 }
-.y_detail .el-input-number__decrease,.el-input-number__increase {
+#y_detail .el-input-number__decrease,.el-input-number__increase {
   width: 20px !important;
   height: 20px !important;
   position: absolute;
@@ -340,14 +332,14 @@ body {
   line-height: 20px;
   border-radius: 50%;
 }
-.y_detail .el-input__inner {
+#y_detail .el-input__inner {
   display: inline-block;
   width: 50%;
   padding: 0 !important;
   margin-left: 32px;
   border-radius: 20px;
 }
-.y_detail .el-button:focus,.el-button:hover {
+#y_detail .el-button:focus,.el-button:hover {
   background: #5ed5e0;
   color: #fff;
 }
