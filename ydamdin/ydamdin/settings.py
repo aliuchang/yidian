@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'rest_framework',
     'ckeditor',
     'goods',
     'login',
@@ -133,7 +134,7 @@ MEDIA_URL = '/media/'
 
 CKEDITOR_UPLOAD_PATH = './ckeditor/'
 
-
+# 富文本编辑器
 CKEDITOR_CONFIGS = {
     'default': {
         'skin': 'moono',
@@ -197,4 +198,15 @@ CKEDITOR_CONFIGS = {
             'elementspath'
         ]),
     }
+}
+
+
+# rest_framework设置
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
 }

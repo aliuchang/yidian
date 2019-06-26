@@ -97,16 +97,24 @@ import Crumbs from '@/components/crumbs.vue'
 export default {
     data(){
         return{
-            jval1: "1029.00",
-            value: '',
-            input: '',
-            input1: '',
-            
+                jval1: "1029.00",
+                value: '',
+                input: '',
+                input1: '',
+
         };
     },
     components: {
         Jchair,
         Crumbs
+    },
+    mounted(){ // 加载时执行
+        this.$axios.post("/api/goods/")
+            .then((res)=>{
+                console.log(res)
+            })
+
+
     },
     methods: {
     godetail(){
@@ -118,7 +126,7 @@ export default {
 </script>
 <style >
 .j-box{
-    width: 100%; 
+    width: 100%;
 }
 .j-box span{
     cursor: pointer;
@@ -126,7 +134,7 @@ export default {
 .j-box .banner{
     width: 1200px;
     height: 400px;
-    margin: 0 auto; 
+    margin: 0 auto;
 }
 .j-box img{
     width: 100%;

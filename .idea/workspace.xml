@@ -2,15 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="12aee124-1536-4771-a652-9e8f158b91ca" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Login.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Register.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ydamdin/login/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/ydamdin/goods/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ydamdin/login/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/ydamdin/login/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ydamdin/goods/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/514a2f2c13a0274ee1ed45802223b779.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/514a2f2c13a0274ee1ed45802223b779.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/1eb48adc8e07c0e3e5cac5121b79a609.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/1eb48adc8e07c0e3e5cac5121b79a609.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/4901102aacb19783217016a5e8b2c44c.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/4901102aacb19783217016a5e8b2c44c.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/4bb8b02440be08dede24335dcf6cd195.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/4bb8b02440be08dede24335dcf6cd195.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/88f1b2b3d4b10fbfd3d6d898c08b0871.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/88f1b2b3d4b10fbfd3d6d898c08b0871.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/94f8d8562f61b2e35a39813bbcf30af3.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/94f8d8562f61b2e35a39813bbcf30af3.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/homepage/list.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/homepage/list.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ydamdin/goods/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ydamdin/goods/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ydamdin/goods/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/ydamdin/goods/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ydamdin/ydamdin/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ydamdin/ydamdin/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ydamdin/ydamdin/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ydamdin/ydamdin/urls.py" afterDir="false" />
     </list>
@@ -39,17 +41,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ydamdin/ydamdin/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="199" column="1" selection-start-line="199" selection-start-column="1" selection-end-line="199" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+            <state relative-caret-position="2386">
+              <caret line="203" column="18" lean-forward="true" selection-start-line="203" selection-start-column="18" selection-end-line="203" selection-end-column="18" />
+              <folding>
+                <element signature="e#3344#6198#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -57,8 +53,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ydamdin/goods/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
+            <state relative-caret-position="180">
+              <caret line="6" column="14" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="14" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -66,11 +62,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ydamdin/goods/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
+            <state relative-caret-position="133">
+              <caret line="18" column="34" lean-forward="true" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -79,21 +75,12 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/Login.vue">
+        <entry file="file://$PROJECT_DIR$/ydamdin/goods/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1694">
-              <caret line="77" column="6" selection-start-line="77" selection-start-column="6" selection-end-line="77" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
+            <state relative-caret-position="270">
+              <caret line="33" column="25" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
               <folding>
-                <element signature="e#0#21#0" expanded="true" />
+                <element signature="e#0#54#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -102,8 +89,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ydamdin/goods/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1276">
-              <caret line="61" column="27" selection-start-line="61" selection-start-column="14" selection-end-line="61" selection-end-column="27" />
+            <state relative-caret-position="334">
+              <caret line="55" column="13" selection-start-line="55" selection-start-column="4" selection-end-line="55" selection-end-column="13" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -112,22 +99,29 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ydamdin/goods/admin.py">
+        <entry file="file://$PROJECT_DIR$/src/views/homepage/list.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
-              <caret line="24" column="183" selection-start-line="24" selection-start-column="183" selection-end-line="24" selection-end-column="183" />
+            <state relative-caret-position="-480">
+              <caret line="79" column="29" lean-forward="true" selection-start-line="79" selection-start-column="29" selection-end-line="79" selection-end-column="29" />
               <folding>
-                <element signature="e#0#32#0" expanded="true" />
+                <element signature="e#3804#3849#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/j-chair.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-608" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ydamdin/ydamdin/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="24" column="54" selection-start-line="24" selection-start-column="54" selection-end-line="24" selection-end-column="54" />
+            <state relative-caret-position="270">
+              <caret line="23" column="19" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="19" />
               <folding>
                 <element signature="e#631#663#0" expanded="true" />
               </folding>
@@ -150,25 +144,15 @@
         <option value="$PROJECT_DIR$/src/views/Register.vue" />
         <option value="$PROJECT_DIR$/src/views/Login.vue" />
         <option value="$PROJECT_DIR$/ydamdin/login/views.py" />
-        <option value="$PROJECT_DIR$/ydamdin/goods/views.py" />
-        <option value="$PROJECT_DIR$/ydamdin/goods/urls.py" />
         <option value="$PROJECT_DIR$/ydamdin/goods/admin.py" />
-        <option value="$PROJECT_DIR$/ydamdin/ydamdin/urls.py" />
         <option value="$PROJECT_DIR$/ydamdin/goods/models.py" />
-        <option value="$PROJECT_DIR$/ydamdin/ydamdin/settings.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectConfigurationFiles">
-    <option name="files">
-      <list>
-        <option value="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-        <option value="$PROJECT_DIR$/.idea/yd.iml" />
-        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
-        <option value="$PROJECT_DIR$/.idea/misc.xml" />
-        <option value="$PROJECT_DIR$/.idea/modules.xml" />
-        <option value="$PROJECT_DIR$/.idea/dictionaries/yangd.xml" />
+        <option value="$PROJECT_DIR$/ydamdin/ydamdin/settings.py" />
+        <option value="$PROJECT_DIR$/src/views/homepage/list.vue" />
+        <option value="$PROJECT_DIR$/ydamdin/goods/serializers.py" />
+        <option value="$PROJECT_DIR$/ydamdin/ydamdin/urls.py" />
+        <option value="$PROJECT_DIR$/ydamdin/goods/urls.py" />
+        <option value="$PROJECT_DIR$/ydamdin/goods/views.py" />
       </list>
     </option>
   </component>
@@ -193,6 +177,23 @@
               <item name="yd" type="b2602c69:ProjectViewProjectNode" />
               <item name="yd" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="yd" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yd" type="462c0819:PsiDirectoryNode" />
+              <item name="ydamdin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yd" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yd" type="462c0819:PsiDirectoryNode" />
+              <item name="ydamdin" type="462c0819:PsiDirectoryNode" />
+              <item name="goods" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yd" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yd" type="462c0819:PsiDirectoryNode" />
+              <item name="ydamdin" type="462c0819:PsiDirectoryNode" />
+              <item name="ydamdin" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -201,6 +202,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -244,12 +246,14 @@
       <workItem from="1561369205643" duration="1931000" />
       <workItem from="1561442421494" duration="4547000" />
       <workItem from="1561447076338" duration="9904000" />
-      <workItem from="1561458105350" duration="184000" />
+      <workItem from="1561458105350" duration="354000" />
+      <workItem from="1561459551278" duration="1041000" />
+      <workItem from="1561509275792" duration="5622000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23580000" />
+    <option name="totallyTimeSpent" value="30413000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -264,7 +268,7 @@
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14713015" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22231205" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -278,7 +282,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.46536413" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.46181172" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.3285968" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -345,29 +349,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ydamdin/goods/urls.py">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ydamdin/goods/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="22">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/Login.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1694">
+        <state relative-caret-position="466">
           <caret line="77" column="6" selection-start-line="77" selection-start-column="6" selection-end-line="77" selection-end-column="6" />
         </state>
       </provider>
@@ -382,19 +373,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ydamdin/goods/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1276">
-          <caret line="61" column="27" selection-start-line="61" selection-start-column="14" selection-end-line="61" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ydamdin/goods/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
+        <state relative-caret-position="466">
           <caret line="24" column="183" selection-start-line="24" selection-start-column="183" selection-end-line="24" selection-end-column="183" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
@@ -402,27 +383,78 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ydamdin/ydamdin/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2386">
+          <caret line="203" column="18" lean-forward="true" selection-start-line="203" selection-start-column="18" selection-end-line="203" selection-end-column="18" />
+          <folding>
+            <element signature="e#3344#6198#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/j-chair.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-608" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ydamdin/goods/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="55" column="13" selection-start-line="55" selection-start-column="4" selection-end-line="55" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/homepage/list.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-480">
+          <caret line="79" column="29" lean-forward="true" selection-start-line="79" selection-start-column="29" selection-end-line="79" selection-end-column="29" />
+          <folding>
+            <element signature="e#3804#3849#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ydamdin/goods/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="6" column="14" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ydamdin/ydamdin/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="24" column="54" selection-start-line="24" selection-start-column="54" selection-end-line="24" selection-end-column="54" />
+        <state relative-caret-position="270">
+          <caret line="23" column="19" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="19" />
           <folding>
             <element signature="e#631#663#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ydamdin/ydamdin/settings.py">
+    <entry file="file://$PROJECT_DIR$/ydamdin/goods/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="199" column="1" selection-start-line="199" selection-start-column="1" selection-end-line="199" selection-end-column="1" />
+        <state relative-caret-position="270">
+          <caret line="33" column="25" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/ydamdin/goods/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        <state relative-caret-position="133">
+          <caret line="18" column="34" lean-forward="true" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
