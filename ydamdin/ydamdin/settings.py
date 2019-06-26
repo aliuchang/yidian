@@ -77,15 +77,28 @@ WSGI_APPLICATION = 'ydamdin.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
+# 杨登辉
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'yidian01',
+        'NAME': 'yidian',
         'USER':'root',
-        'PASSWORD':'15835007400',
+        'PASSWORD':'123456',
         'PORT':3306
     }
 }
+
+# 杨俊林
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'yidian01',
+#         'USER':'root',
+#         'PASSWORD':'15835007400',
+#         'PORT':3306
+#     }
+# }
+
 
 
 # Password validation

@@ -41,9 +41,9 @@
             <div class="j-sort">
                 <span class="j-sort-left">面料材质</span>
                 <span class="j-sort-right">
-                    <span class="j-caizhi-right">网布</span>
-                    <span class="j-caizhi-right">牛皮</span>
-                    <span class="j-caizhi-right">绒布</span>
+                    <template v-for="item in texture">
+                        <span class="j-caizhi-right" :class="[type==item.id?'hover':'hover1']" @click="getData(item.id)">{{ item.title }}</span>
+                    </template>
                 </span>
             </div>
             <div class="j-sort j-sort2">
@@ -101,6 +101,8 @@ export default {
                 value: '',
                 input: '',
                 input1: '',
+                type:'wangbu',
+                texture:[{id:1,title:'网布'},{id:2,title:'牛皮'}]
 
         };
     },
@@ -120,6 +122,10 @@ export default {
     godetail(){
         this.$router.push('detail'),
         window.scroll(0, 0);``
+    },
+    getData(v){
+        alert(v)
+      this.type = v;
     }
   }
 }
@@ -248,5 +254,8 @@ export default {
 .j-box .j-page .el-pagination .el-pager .btn-quicknext{
     border-radius: 50%;
 }
+    .hover{
+        background-color:red;
+    }
 </style>
 
