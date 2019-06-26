@@ -24,7 +24,7 @@
                 <el-input
                   type="text"
                   v-model.number="numberValidateForm.name"
-                  
+
                   placeholder="手机号/账号/邮箱"
                   class="text1"
                 ></el-input>
@@ -73,7 +73,7 @@ export default {
     return {
       numberValidateForm: {
         name: "",
-        Pass: ""
+        pass: ""
       }
     };
   },
@@ -81,7 +81,16 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
-          this.$router.push({ name: "firstpage" });
+            let data = new FormData()
+            data.append('username',this.numberValidateForm.name)
+            data.append('password',this.numberValidateForm.pass)
+
+            this.$axios.post("api/login/",data).then((res)=>{
+                console.log(res)
+            })
+
+
+            // this.$router.push({ name: "firstpage" });
         } else {
           console.log("error submit!!");
           return false;
@@ -169,7 +178,7 @@ export default {
   width: 50px;
 }
 .form-box .addel{
-  margin-top:-15px; 
+  margin-top:-15px;
 }
 .form-box .addel span{
    color: #000000;
@@ -178,7 +187,7 @@ export default {
 }
 .form-box .addel span:nth-child(1){
   float: left;
- 
+
 }
 .form-box .addel span:nth-child(2){
   float: right;
@@ -186,7 +195,7 @@ export default {
 .form-box .loginn{
   width: 100%;
   background-color: #7d7d7d;
-	box-shadow: 0px 3px 5px 0px 
+	box-shadow: 0px 3px 5px 0px
 	rgba(195, 195, 195, 0.74);
   color: #ffffff;
 	opacity: 0.8;
