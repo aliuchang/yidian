@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Goods,Texture,Style,FitPeople,Materials,Category,Image,Color
+from .models import Goods,Texture,Style,Fit_people,Materials,Category,Image,Color
 from django.utils.html import format_html
 
 # Register your models here.
@@ -30,8 +30,10 @@ class GoodsAdmin(admin.ModelAdmin):
     getColor.short_description = "getColor"
 
     def getImg(self,obj):
+        print(obj.img.all()[0].img)
         img = str(obj.img.all()[0].img)
         img = img.split("/")[-1]
+        print(img)
         return format_html("<img src='/media/%s' width='100'>"%img)
     getImg.short_description = "getImg"
 
@@ -66,7 +68,7 @@ class TextureAdmin(admin.ModelAdmin):
 class StyleAdmin(admin.ModelAdmin):
     inlines = [Goods_Inline]
 
-@admin.register(FitPeople)
+@admin.register(Fit_people)
 class FitPeopleAdmin(admin.ModelAdmin):
     inlines = [Goods_Inline]
 
@@ -78,8 +80,3 @@ class MaterialsAdmin(admin.ModelAdmin):
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     inlines = [Goods_Inline]
-
-
-
-
-
