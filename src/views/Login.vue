@@ -87,6 +87,7 @@ export default {
 
             this.$axios.post("api/login/",data).then((res)=>{
                 console.log(res)
+                sessionStorage.setItem('name',this.numberValidateForm.name)
             })
 
 

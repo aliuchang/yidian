@@ -2,7 +2,7 @@
 <template>
     <div class="n-pay">
         <paycrumbs/>
-        <paystep statuss="3"/>
+        <z-status statuss="3" class="statuss"></z-status>
         <div class="ordertips">
             <img src="@/assets/img/ordertips.png" class="ordericon">
             <img src="@/assets/img/paytips.png" class="paytips">
@@ -50,7 +50,7 @@
 
 <script>
 import paycrumbs from '@/components/crumbs.vue'
-import paystep from '@/components/pay/z-status.vue'
+import zStatus from "@/components/z-status.vue";
 
 export default {
     data(){
@@ -67,7 +67,7 @@ export default {
         }
     },
     components:{
-        paystep,
+        zStatus,
         paycrumbs
     }
 }
@@ -81,6 +81,9 @@ export default {
   display: flex;
   align-items: center;
 }
+.n-pay .statuss{
+    margin: 0 auto;
+}
 .n-pay .dot {
   width: 10px;
   height: 10px;
@@ -92,7 +95,7 @@ export default {
     display: flex;
     align-items: center;
     margin-left: 20px;
-} 
+}
 .n-pay .n-crumbs .el-breadcrumb{
   font-size: 20px;
 }

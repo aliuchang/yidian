@@ -1,5 +1,6 @@
 <template>
   <div class="successview">
+    <Crumbs/>
     <z-status :statuss="status"></z-status>
     <div class="successimg">
       <img src="@/assets/z-img/successimg.png" alt>
@@ -7,7 +8,7 @@
     </div>
     <div class="successview-buttom">
       <div class="btn check" @click="push1()">查看订单</div>
-      <div class="btn more" @click="push2()">还想看看</div>
+      <div class="btn more1" @click="push2()">还想看看</div>
     </div>
     <div class="recommend">
       <div class="recommendimg">
@@ -23,6 +24,7 @@
 <script>
 import zStatus from "@/components/z-status.vue";
 import zChair from "@/components/z-chair.vue";
+import Crumbs from "@/components/crumbs.vue";
 export default {
   data() {
     return {
@@ -31,7 +33,8 @@ export default {
   },
   components: {
     zStatus,
-    zChair
+    zChair,
+    Crumbs
   },
   methods: {
     push1() {
@@ -83,7 +86,7 @@ export default {
   float: left;
   margin-left: 276px;
 }
-.successview .successview-buttom .more {
+.successview .successview-buttom .more1 {
   background-color: #000000;
   opacity: 0.6;
   margin-left: 134px;
