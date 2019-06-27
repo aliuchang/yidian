@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import View
 from django.http import HttpResponse,JsonResponse
-from .serializers import GoodsSerializer,StyleSerializer,TextureSerializer,FitPeopleSerializer,MaterialsSerializer
+from .serializers import GoodsSerializer,StyleSerializer,TextureSerializer,FitPeopleSerializer,MaterialsSerializer,GoodsDetailSerializer
 from rest_framework.renderers import JSONRenderer
 from .models import Goods,Texture,FitPeople,Style,Materials
 
@@ -9,9 +9,26 @@ from .models import Goods,Texture,FitPeople,Style,Materials
 
 class Index(View):
     def post(self,request):
-        data = Goods.objects.all()
-        res = GoodsSerializer(data,many=True)
-        res2 = res.data
+        t = request.POST.get('t_id',None)
+        s = request.POST.get('s_id',None)
+        f = request.POST.get('f_id',None)
+        m = request.POST.get('m_id',None)
+
+        obj = Goods.objects
+        if t:
+            obj = obj.filter(texture__id=t)
+        if s:
+            obj = obj.filter(style__id=s)
+        if f:
+            obj = obj.filter(fit_people__id=f)
+        if m:
+            obj = obj.filter(materials__id=m)
+
+        queryset = obj.all()
+
+
+        res = GoodsSerializer(queryset,many=True)
+        res2 = JSONRenderer().render(res.data)
         return HttpResponse(res2)
 
 class Attr(View):
@@ -33,3 +50,11 @@ class Attr(View):
             'fitPeople':FitPeopleJson,
             'materials':MaterialsJson
         })
+
+class GoodsView(View):
+    def get(self,request,id):
+        res = Goods.objects.filter(id=id).first()
+        res = GoodsDetailSerializer(res)
+        res2 = JSONRenderer().render(res.data)
+        print(res2)
+        return HttpResponse(res2)

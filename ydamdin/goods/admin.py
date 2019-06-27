@@ -24,6 +24,11 @@ class ColorAdmin(admin.ModelAdmin):
 class GoodsAdmin(admin.ModelAdmin):
     list_display = ['name','en_name','desc','code','con','sales','price','inventory','category','texture','style','fit_people','materials','getColor','getImg','c_datatime','u_datatime']
 
+    def save_model(self, request, obj, form, change):
+        print(obj)
+        super().save_model(request,obj,form,change)
+
+
     def getColor(self,obj):
         color = obj.color.all()[0].title
         return color

@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'suit',
     'rest_framework',
     'ckeditor',
     'goods',
@@ -141,7 +142,7 @@ STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR,"upload_img")
 # 上传到项目中的根地址
-MEDIA_URL = '/media/'
+MEDIA_URL = '/api/media/'
 # 上传文件的加载地址
 
 

@@ -39,9 +39,15 @@ class Color(models.Model):
 
 class Image(models.Model):
     img = models.ImageField(upload_to="./upload_img", verbose_name="产品图片")
+    def __str__(self):
+        return str(self.img)
 
 
 class Goods(models.Model):
+    class Meta:
+        verbose_name='商品管理'
+        verbose_name_plural = "商品管理"
+        ordering = ['-c_datatime']
     #编码
     name = models.CharField(max_length=50,unique=True,verbose_name="产品名称")
     en_name = models.CharField(max_length=50, unique=True, verbose_name="英文名称")
