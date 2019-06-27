@@ -2,7 +2,7 @@
 <template>
     <div class="n-pay">
         <paycrumbs/>
-        <z-status statuss="3" class="statuss"></z-status>
+        <paystep statuss="3"/>
         <div class="ordertips">
             <img src="@/assets/img/ordertips.png" class="ordericon">
             <img src="@/assets/img/paytips.png" class="paytips">
@@ -16,25 +16,33 @@
         </div>
         <div class="paymenttips">
             <img src="@/assets/img/payment.png" class="paymenticon">
+            <el-radio-group v-model="radio" @change="showselect">
             <div class="payment">
                 <div class="fastpayment">
-                    <el-radio v-model="radio" label="1">快捷支付 (点击第三方设备进行付款)</el-radio>
+                    <el-radio label="1">快捷支付 (点击第三方设备进行付款)</el-radio>
                 </div>
                 <div class="sweepcode">
-                    <el-radio v-model="radio" label="2">扫码支付</el-radio>
+                    <el-radio label="2">扫码支付</el-radio>
                 </div>
             </div>
-            <div class="select">
-                <div class="apily">
-                    <el-radio v-model="select" label="1"><img src="@/assets/img/apily.png"></el-radio>
+
+            <el-radio-group v-model="select">
+                <div class="select" :class="{ show : isshow }">
+
+                        <div class="apily">
+                            <el-radio label="1"><img src="@/assets/img/apily.png"></el-radio>
+                        </div>
+                        <div class="wechat">
+                            <el-radio label="2"><img src="@/assets/img/wechat.png"></el-radio>
+                        </div>
+
                 </div>
-                <div class="wechat">
-                    <el-radio v-model="select" label="2"><img src="@/assets/img/wechat.png"></el-radio>
-                </div>
-            </div>
+            </el-radio-group>
+
             <div class="internetbank">
-                <el-radio v-model="radio" label="3">网银支付</el-radio>
+                <el-radio label="3">网银支付</el-radio>
             </div>
+            </el-radio-group>
             <div class="total">
                 <div class="title">
                     <div class="name">应付总额 ：</div>
@@ -43,68 +51,57 @@
                 <div class="paymoney">{{payment.price}}</div>
                 <div class="rmb">RMB</div>
             </div>
-            <div class="account">结算</div>
+            <div class="account" @click="buy">结算</div>
         </div>
     </div>
 </template>
 
 <script>
 import paycrumbs from '@/components/crumbs.vue'
-import zStatus from "@/components/z-status.vue";
+import paystep from '@/components/z-status.vue'
 
 export default {
     data(){
         return {
             payment: {
-                min: 29,
-                s: 25,
-                ms: 36,
+                min: 0,
+                s: 0,
+                ms: 0,
                 ordernum: 2019042814458299,
                 price: '3146.00'
             },
             radio: '1',
-            select: '',
+            select: '1',
+            isshow: false
         }
     },
     components:{
-        zStatus,
+        paystep,
         paycrumbs
+    },
+    methods:{
+        showselect(val){
+            // console.log(val)
+            if( val != 1 ){
+                this.isshow = true
+            }else if( val == 1 ){
+                this.isshow = false
+            }
+        },
+        buy(){
+            this.$router.push({name:'success'})
+            window.scroll(0,0)
+        }
     }
 }
 </script>
 
 <style>
-.n-pay .n-crumbs {
-  width: 1200px;
-  height: 90px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-}
-.n-pay .statuss{
-    margin: 0 auto;
-}
-.n-pay .dot {
-  width: 10px;
-  height: 10px;
-  background: #4cc0cb;
-  border-radius: 50%;
-  margin: 20px;
-}
-.n-pay .el-radio{
-    display: flex;
-    align-items: center;
-    margin-left: 20px;
-}
-.n-pay .n-crumbs .el-breadcrumb{
-  font-size: 20px;
-}
-.n-pay .el-steps.el-steps--horizontal{
+.n-pay{
     width: 1200px;
-    height: 83px;
-    background: #f3f3f3;
     margin: 0 auto;
 }
+
 .n-pay .ordertips,.paymenttips{
     width: 1200px;
     height: 300px;
@@ -126,6 +123,8 @@ export default {
     position: absolute;
     top: 182px;
     left: 160px;
+    display: flex;
+    justify-content: space-around;
 }
 .n-pay .ordertips .time span{
     width: 56px;
@@ -133,7 +132,6 @@ export default {
     font-weight: 700;
     line-height: 42px;
     color: #e42828;
-    margin: 0 30px 0 15px;
 }
 .n-pay .ordertips .ordernum,.payprice{
     font-size: 30px;
@@ -151,8 +149,15 @@ export default {
 }
 .n-pay .paymenttips .payment{
     padding-top: 140px;
+    padding-bottom: 20px;
     display: flex;
     justify-content: space-between;
+}
+.n-pay .el-radio-group{
+    text-align: left;
+}
+.n-pay .el-radio__input{
+    margin-left: 20px;
 }
 .n-pay  .el-radio__label{
     font-size: 18px;
@@ -181,9 +186,13 @@ export default {
     align-items: center;
 }
 .n-pay .select{
-    height: 100px;
+    height: 60px;
+    padding-bottom: 20px;
     display: flex;
     align-items: center;
+}
+.n-pay .show{
+    display: none;
 }
 .n-pay .select .apily,.wechat{
     margin-right: 70px;
@@ -232,5 +241,6 @@ export default {
     line-height: 77px;
     box-shadow: 0 0 10px 1px #d0d0d0;
     float: right;
+    cursor: pointer;
 }
 </style>
